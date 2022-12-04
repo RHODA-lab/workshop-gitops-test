@@ -1,0 +1,31 @@
+# Default values for create-and-connect.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# name of the workflow (use case)
+workflowName: create-and-connect
+
+appName: myapp
+
+provider:
+  # provider hosting the databases (mongodb-atlas-registration, cockroachdb-cloud-registration, crunchy-bridge-registration etc)
+  type: cockroachdb-cloud-registration
+  # database instance name
+  newInstanceName: my-crdb-100
+  # the name of the CockroachDB cluster
+  clusterName: my-crdb-100
+  # secret for the provider account credenitials as well as the provider account (dbaadinventory CR)
+  secret: my-crdb-key
+  # An admin namespace for storing the secret for the provider account credenitials as well as the provider account (dbaadinventory CR)
+  admNamespace: veda-gitops-test
+
+service:
+  protocol: TCP
+  port: 8080
+  targetPort: 8080
+  portName: http
+
+# 
+#   $INSTANCE_ID: database instance ID
+#  
+
